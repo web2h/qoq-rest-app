@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.web2h.qoq</groupId>
+	<artifactId>qoq-rest-app</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>QoQ REST application - Parent</name>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.3.RELEASE</version>
+	</parent>
+
+	<modules>
+		<module>qoq-rest-model</module>
+		<module>qoq-rest-persistence</module>
+		<module>qoq-rest-core</module>
+		<module>qoq-rest-flyway</module>
+		<module>qoq-rest-web</module>
+		<module>qoq-rest-messaging</module>
+	</modules>
+
+	<properties>
+		<apache.commons.version>3.8.1</apache.commons.version>
+		<hibernate.annotations.version>3.5.6-Final</hibernate.annotations.version>
+		<java.version>1.8</java.version>
+		<jsonwebtoken.version>0.9.1</jsonwebtoken.version>
+		<spring.boot.version>2.1.3.RELEASE</spring.boot.version>
+		<web2h.tools.version>1.0.0-SNAPSHOT</web2h.tools.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-parent</artifactId>
+				<version>${spring.boot.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.apache.commons</groupId>
+			    <artifactId>commons-lang3</artifactId>
+			    <version>${apache.commons.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-annotations</artifactId>
+				<version>${hibernate.annotations.version}</version>
+			</dependency>	
+			
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt</artifactId>
+				<version>${jsonwebtoken.version}</version>
+			</dependency>	
+		</dependencies>
+	</dependencyManagement>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.web2h</groupId>
+			<artifactId>tools</artifactId>
+			<version>${web2h.tools.version}</version>
+		</dependency>
+	</dependencies>
+</project>
