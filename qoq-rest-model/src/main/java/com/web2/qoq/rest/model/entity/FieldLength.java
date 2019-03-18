@@ -30,4 +30,6 @@ public interface FieldLength {
 	int TITLE_MAX = 64;
 
 	int TOKEN_MAX = 128;
+
+	int WEB_URL_MAX = 1024;
 }

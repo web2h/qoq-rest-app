@@ -1,5 +1,8 @@
 package com.web2.qoq.rest.model.entity.listing;
 
+import static com.web2.qoq.rest.model.entity.FieldLength.KEY_MAX;
+import static com.web2.qoq.rest.model.entity.FieldLength.NAME_MAX;
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -17,9 +20,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
-import org.apache.commons.lang3.StringUtils;
-
-import com.web2.qoq.rest.model.entity.FieldLength;
 import com.web2.qoq.rest.model.entity.VersionableEntity;
 import com.web2.qoq.rest.model.entity.user.User;
 
@@ -34,35 +34,19 @@ public class Contribution extends VersionableEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected Long id;
 
-	/** CONTRIBUTOR - As a logged in user. */
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	protected User contributor;
 
-	/** UNLOGGED CONTRIBUTOR - As an unlogged user. */
-	@ManyToOne
-	@JoinColumn(name = "unlogged_user_id")
-	protected User unloggedContributor;
-
-	/** DATE OF CONTRIBUTION - Contribution date. */
 	@Column(name = "contribution_ts", nullable = false)
 	protected Date dateOfContribution = new Date();
 
-	/**
-	 * PRIVATE KEY - Private key to allow unlogged user to edit or remove its
-	 * contribution.
-	 */
-	@Column(name = "private_key", length = FieldLength.KEY_MAX)
+	@Column(name = "private_key", length = KEY_MAX)
 	protected String privateKey;
 
-	/**
-	 * ON BEHALF CONTRIBUTOR - Name of the person on behalf of whom the logged in
-	 * user makes a contribution.
-	 */
-	@Column(name = "contributed_on_behalf_of", length = FieldLength.NAME_MAX)
+	@Column(name = "contributed_on_behalf_of", length = NAME_MAX)
 	protected String contributedOnBehalfOf;
 
-	/** HIDDEN - Keep the contribution private. */
 	@Column(name = "hidden")
 	protected Boolean hidden = true;
 
@@ -71,47 +55,8 @@ public class Contribution extends VersionableEntity {
 		dateOfContribution = new Date();
 	}
 
-	/**
-	 * Copies properties of a Contribution instance to the current instance.
-	 * 
-	 * @param contribution
-	 *            Contribution instance to get the properties from
-	 */
-	public void copyProperties(final Contribution contribution) {
-		this.hidden = contribution.isHidden();
-		this.contributedOnBehalfOf = contribution.getContributedOnBehalfOf();
-	}
-
-	/**
-	 * Tells if the contribution amount must remain hidden or not.
-	 * 
-	 * @return true if the contribution amount is hidden, false otherwise
-	 */
 	public Boolean isHidden() {
 		return hidden;
-	}
-
-	/**
-	 * Gets the contributor email (logged or unlogged).
-	 * 
-	 * @return The contributor email
-	 */
-	public String getContributorEmail() {
-		if (contributor != null) {
-			return contributor.getEmail();
-		} else if (unloggedContributor != null) {
-			return unloggedContributor.getEmail();
-		}
-		return StringUtils.EMPTY;
-	}
-
-	/**
-	 * Gets the contributor name (logged or unlogged).
-	 * 
-	 * @return The contributor name
-	 */
-	public String getContributorName() {
-		return null;
 	}
 
 	public User getContributor() {
@@ -120,14 +65,6 @@ public class Contribution extends VersionableEntity {
 
 	public void setContributor(User contributor) {
 		this.contributor = contributor;
-	}
-
-	public User getUnloggedContributor() {
-		return unloggedContributor;
-	}
-
-	public void setUnloggedContributor(User unloggedContributor) {
-		this.unloggedContributor = unloggedContributor;
 	}
 
 	public Date getDateOfContribution() {
