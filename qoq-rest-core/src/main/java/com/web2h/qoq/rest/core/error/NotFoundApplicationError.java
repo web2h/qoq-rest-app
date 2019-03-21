@@ -6,7 +6,8 @@ public enum NotFoundApplicationError implements ApplicationError {
 
 	USER_NOT_FOUND_BY_AUTHENTICATION_TOKEN("404-001", "No user could be found with this authentication token"),
 	USER_NOT_FOUND_BY_EMAIL("404-002", "No user could be found with this email address"),
-	AUTHENTICATION_CODE_NOT_FOUND("404-003", "No authentication code exists with that value");
+	AUTHENTICATION_CODE_NOT_FOUND("404-003", "No authentication code exists with that value"),
+	USER_DOES_NOT_EXIST("404-003", "The given user does not exist");
 
 	private String code;
 

@@ -99,7 +99,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 		User user = userRepository.findByEmail(email).orElseGet(() -> createNewUser(email));
 
-		AuthenticationCode authenticationCode = createNewAuthenticationCode(user);
+		/* /AuthenticationCode authenticationCode = */createNewAuthenticationCode(user);
 
 		// TODO Send authentication code to user's email address
 	}
