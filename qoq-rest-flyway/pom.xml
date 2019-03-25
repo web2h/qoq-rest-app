@@ -10,4 +10,23 @@
 		<artifactId>qoq-rest-app</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>				
+				<configuration>
+					<configFile>src/main/resources/flyway.properties</configFile>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

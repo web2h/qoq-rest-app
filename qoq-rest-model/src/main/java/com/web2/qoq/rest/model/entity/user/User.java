@@ -1,9 +1,10 @@
 package com.web2.qoq.rest.model.entity.user;
 
+import static com.web2.qoq.rest.model.entity.FieldLength.ALIAS_MAX;
 import static com.web2.qoq.rest.model.entity.FieldLength.EMAIL_MAX;
 import static com.web2.qoq.rest.model.entity.FieldLength.LANGUAGE_MAX;
-import static com.web2.qoq.rest.model.entity.FieldLength.NAME_MAX;
 import static com.web2.qoq.rest.model.entity.FieldLength.PHONE_NUMBER_MAX;
+import static com.web2.qoq.rest.model.entity.FieldLength.TOKEN_MAX;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,8 +17,6 @@ import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-
-import com.web2.qoq.rest.model.entity.FieldLength;
 
 @Entity
 @Table(name = "users")
@@ -33,10 +32,10 @@ public class User {
 	@Column(name = "cell_phone_number", length = PHONE_NUMBER_MAX, unique = true)
 	private String cellPhoneNumber;
 
-	@Column(name = "authentication_token", length = FieldLength.TOKEN_MAX, unique = true)
+	@Column(name = "authentication_token", length = TOKEN_MAX, unique = true)
 	private String authenticationToken;
 
-	@Column(name = "alias", length = NAME_MAX, nullable = false)
+	@Column(name = "alias", length = ALIAS_MAX, nullable = false)
 	private String alias;
 
 	@Enumerated(EnumType.STRING)

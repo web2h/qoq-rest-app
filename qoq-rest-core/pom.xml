@@ -31,6 +31,11 @@
 		</dependency>
 		
 		<dependency>
+			<groupId>com.web2h</groupId>
+			<artifactId>tools</artifactId>
+		</dependency>
+		
+		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt</artifactId>
 		</dependency>

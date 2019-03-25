@@ -58,11 +58,22 @@
 				<groupId>io.jsonwebtoken</groupId>
 				<artifactId>jjwt</artifactId>
 				<version>${jsonwebtoken.version}</version>
-			</dependency>	
+			</dependency>
+			
+			<dependency>
+				<groupId>com.web2h</groupId>
+				<artifactId>tools</artifactId>
+				<version>${web2h.tools.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	
 	<dependencies>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -77,12 +88,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.web2h</groupId>
-			<artifactId>tools</artifactId>
-			<version>${web2h.tools.version}</version>
-		</dependency>
+		</dependency>		
 	</dependencies>
 </project>

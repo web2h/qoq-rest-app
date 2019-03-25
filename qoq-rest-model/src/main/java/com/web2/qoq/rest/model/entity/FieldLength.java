@@ -7,6 +7,8 @@ package com.web2.qoq.rest.model.entity;
  */
 public interface FieldLength {
 
+	int ALIAS_MAX = 32;
+
 	int CODE_MAX = 6;
 
 	int EMAIL_MAX = 256;
