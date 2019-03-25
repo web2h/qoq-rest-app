@@ -5,7 +5,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -71,7 +70,7 @@ public class GiftlistServiceUnitTest extends ListingServiceUnitTest {
 		// Then
 		assertNotNull(giftlist);
 		assertNotNull(giftlist.getPublicKey());
-		verify(giftlistRepository, times(1)).save(any(Giftlist.class));
+		verify(giftlistRepository).save(any(Giftlist.class));
 	}
 
 	private Giftlist givenGiftlist() {

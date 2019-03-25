@@ -71,7 +71,7 @@ public class PotServiceUnitTest extends ListingServiceUnitTest {
 		// Then
 		assertNotNull(pot.getAdminKey());
 		assertNotNull(pot.getPublicKey());
-		verify(potRepository, times(1)).save(any(Pot.class));
+		verify(potRepository).save(any(Pot.class));
 	}
 
 	private Pot givenPot() {

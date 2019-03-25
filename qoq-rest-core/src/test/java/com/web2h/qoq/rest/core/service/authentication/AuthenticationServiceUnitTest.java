@@ -168,7 +168,7 @@ public class AuthenticationServiceUnitTest {
 
 		// Then
 		assertNotEquals(authenticationToken, newAuthenticationToken);
-		verify(userRepository, times(1)).save(any(User.class));
+		verify(userRepository).save(any(User.class));
 	}
 
 	@Test
@@ -244,8 +244,8 @@ public class AuthenticationServiceUnitTest {
 
 		// Then
 		assertNotNull(authenticationToken);
-		verify(authenticationCodeRepository, times(1)).delete(any(AuthenticationCode.class));
-		verify(userRepository, times(1)).save(any(User.class));
+		verify(authenticationCodeRepository).delete(any(AuthenticationCode.class));
+		verify(userRepository).save(any(User.class));
 	}
 
 	@Test
@@ -272,7 +272,7 @@ public class AuthenticationServiceUnitTest {
 		authenticationService.requestLoginCode(USER_EMAIL);
 
 		// Then
-		verify(userRepository, times(1)).save(any(User.class));
+		verify(userRepository).save(any(User.class));
 	}
 
 	@Test
@@ -286,8 +286,8 @@ public class AuthenticationServiceUnitTest {
 		authenticationService.requestLoginCode(user.getEmail());
 
 		// Then
-		verify(authenticationCodeRepository, times(1)).findByCode(anyString());
-		verify(authenticationCodeRepository, times(1)).save(any(AuthenticationCode.class));
+		verify(authenticationCodeRepository).findByCode(anyString());
+		verify(authenticationCodeRepository).save(any(AuthenticationCode.class));
 	}
 
 	private String givenValidAuthenticationToken(String securityKey, long lifetime) {
