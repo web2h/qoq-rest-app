@@ -1,6 +1,6 @@
 package com.web2h.qoq.rest.core.service.authentication;
 
-import com.web2h.qoq.rest.core.error.ApplicationException;
+import com.web2h.qoq.rest.messaging.error.ApplicationException;
 
 public interface AuthenticationService {
 

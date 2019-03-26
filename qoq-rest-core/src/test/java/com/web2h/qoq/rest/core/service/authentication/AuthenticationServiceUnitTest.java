@@ -1,20 +1,19 @@
 package com.web2h.qoq.rest.core.service.authentication;
 
-import static com.web2h.qoq.rest.core.error.BadRequestApplicationError.EXPIRED_AUTHENTICATION_TOKEN;
-import static com.web2h.qoq.rest.core.error.BadRequestApplicationError.INVALID_AUTHENTICATION_TOKEN;
-import static com.web2h.qoq.rest.core.error.NotAuthorizedApplicationError.AUTHENTICATION_CODE_IS_EXPIRED;
-import static com.web2h.qoq.rest.core.error.NotAuthorizedApplicationError.DIFFERENT_USER_IN_AUTHENTICATION_TOKEN;
-import static com.web2h.qoq.rest.core.error.NotAuthorizedApplicationError.DIFFERENT_USER_LINKED_TO_CODE;
-import static com.web2h.qoq.rest.core.error.NotFoundApplicationError.AUTHENTICATION_CODE_NOT_FOUND;
-import static com.web2h.qoq.rest.core.error.NotFoundApplicationError.USER_NOT_FOUND_BY_AUTHENTICATION_TOKEN;
-import static com.web2h.qoq.rest.core.error.NotFoundApplicationError.USER_NOT_FOUND_BY_EMAIL;
+import static com.web2h.qoq.rest.messaging.error.NotAuthorizedApplicationError.AUTHENTICATION_CODE_IS_EXPIRED;
+import static com.web2h.qoq.rest.messaging.error.NotAuthorizedApplicationError.DIFFERENT_USER_IN_AUTHENTICATION_TOKEN;
+import static com.web2h.qoq.rest.messaging.error.NotAuthorizedApplicationError.DIFFERENT_USER_LINKED_TO_CODE;
+import static com.web2h.qoq.rest.messaging.error.NotAuthorizedApplicationError.EXPIRED_AUTHENTICATION_TOKEN;
+import static com.web2h.qoq.rest.messaging.error.NotAuthorizedApplicationError.INVALID_AUTHENTICATION_TOKEN;
+import static com.web2h.qoq.rest.messaging.error.NotAuthorizedApplicationError.USER_NOT_FOUND_BY_AUTHENTICATION_TOKEN;
+import static com.web2h.qoq.rest.messaging.error.NotFoundApplicationError.AUTHENTICATION_CODE_NOT_FOUND;
+import static com.web2h.qoq.rest.messaging.error.NotFoundApplicationError.USER_NOT_FOUND_BY_EMAIL;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -33,7 +32,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 import com.web2.qoq.rest.model.entity.user.AuthenticationCode;
 import com.web2.qoq.rest.model.entity.user.User;
-import com.web2h.qoq.rest.core.error.ApplicationException;
+import com.web2h.qoq.rest.messaging.error.ApplicationException;
 import com.web2h.qoq.rest.persistence.repository.user.AuthenticationCodeRepository;
 import com.web2h.qoq.rest.persistence.repository.user.UserRepository;
 import com.web2h.tools.authentication.JwtTools;

@@ -1,6 +1,6 @@
 package com.web2h.qoq.rest.core.service.listing;
 
-import static com.web2h.qoq.rest.core.error.NotFoundApplicationError.USER_DOES_NOT_EXIST;
+import static com.web2h.qoq.rest.messaging.error.NotFoundApplicationError.USER_DOES_NOT_EXIST;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.Validate;
@@ -10,9 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.web2.qoq.rest.model.entity.FieldLength;
 import com.web2.qoq.rest.model.entity.listing.Listing;
 import com.web2.qoq.rest.model.entity.user.User;
-import com.web2h.qoq.rest.core.error.ApplicationException;
 import com.web2h.qoq.rest.core.logger.listing.ListingLogger;
 import com.web2h.qoq.rest.core.mailer.Mailer;
+import com.web2h.qoq.rest.messaging.error.ApplicationException;
 import com.web2h.qoq.rest.persistence.repository.listing.ListingRepository;
 import com.web2h.qoq.rest.persistence.repository.user.UserRepository;
 

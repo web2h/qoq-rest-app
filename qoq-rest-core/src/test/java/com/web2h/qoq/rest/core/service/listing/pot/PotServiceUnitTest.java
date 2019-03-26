@@ -1,6 +1,6 @@
 package com.web2h.qoq.rest.core.service.listing.pot;
 
-import static com.web2h.qoq.rest.core.error.NotFoundApplicationError.USER_DOES_NOT_EXIST;
+import static com.web2h.qoq.rest.messaging.error.NotFoundApplicationError.USER_DOES_NOT_EXIST;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -19,9 +19,9 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.web2.qoq.rest.model.entity.listing.pot.Pot;
-import com.web2h.qoq.rest.core.error.ApplicationException;
 import com.web2h.qoq.rest.core.logger.listing.PotLogger;
 import com.web2h.qoq.rest.core.service.listing.ListingServiceUnitTest;
+import com.web2h.qoq.rest.messaging.error.ApplicationException;
 import com.web2h.qoq.rest.persistence.repository.listing.pot.PotRepository;
 
 @RunWith(MockitoJUnitRunner.class)

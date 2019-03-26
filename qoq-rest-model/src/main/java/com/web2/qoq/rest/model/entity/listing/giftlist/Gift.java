@@ -11,6 +11,9 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -22,6 +25,10 @@ import com.web2.qoq.rest.model.entity.listing.Listing;
 @Entity
 @Table(name = "gifts")
 public class Gift extends VersionableEntity {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
 	@Column(name = "title", length = TITLE_MAX, nullable = false)
 	private String title;
@@ -47,6 +54,14 @@ public class Gift extends VersionableEntity {
 
 	public void addContribution(GiftlistContribution contribution) {
 		contributions.add(contribution);
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getTitle() {

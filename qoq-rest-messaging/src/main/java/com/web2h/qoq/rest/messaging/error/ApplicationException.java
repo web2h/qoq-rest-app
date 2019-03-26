@@ -1,4 +1,4 @@
-package com.web2h.qoq.rest.core.error;
+package com.web2h.qoq.rest.messaging.error;
 
 public class ApplicationException extends Exception {
 

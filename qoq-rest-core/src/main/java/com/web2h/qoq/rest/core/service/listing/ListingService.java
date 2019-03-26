@@ -2,7 +2,7 @@ package com.web2h.qoq.rest.core.service.listing;
 
 import com.web2.qoq.rest.model.entity.listing.Listing;
 import com.web2.qoq.rest.model.entity.user.User;
-import com.web2h.qoq.rest.core.error.ApplicationException;
+import com.web2h.qoq.rest.messaging.error.ApplicationException;
 
 public interface ListingService<L extends Listing> {
 
