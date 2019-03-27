@@ -163,10 +163,10 @@ public class AuthenticationServiceUnitTest {
 		when(userRepository.findByAuthenticationToken(anyString())).thenReturn(Optional.of(givenUser(USER_EMAIL)));
 
 		// When
-		String newAuthenticationToken = authenticationService.authenticateUser(authenticationToken);
+		User authenticatedUser = authenticationService.authenticateUser(authenticationToken);
 
 		// Then
-		assertNotEquals(authenticationToken, newAuthenticationToken);
+		assertNotEquals(authenticationToken, authenticatedUser.getAuthenticationToken());
 		verify(userRepository).save(any(User.class));
 	}
 
@@ -239,10 +239,10 @@ public class AuthenticationServiceUnitTest {
 		when(userRepository.findByEmail(USER_EMAIL)).thenReturn(Optional.of(givenUser(USER_EMAIL)));
 
 		// When
-		String authenticationToken = authenticationService.confirmUser(AUTHENTICATION_CODE, USER_EMAIL);
+		User authenticatedUser = authenticationService.confirmUser(AUTHENTICATION_CODE, USER_EMAIL);
 
 		// Then
-		assertNotNull(authenticationToken);
+		assertNotNull(authenticatedUser.getAuthenticationToken());
 		verify(authenticationCodeRepository).delete(any(AuthenticationCode.class));
 		verify(userRepository).save(any(User.class));
 	}

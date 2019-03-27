@@ -52,7 +52,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	private long codeLifetime;
 
 	@Override
-	public String authenticateUser(String authenticationToken) throws ApplicationException {
+	public User authenticateUser(String authenticationToken) throws ApplicationException {
 
 		if (authenticationToken == null) {
 			throw new ApplicationException(MISSING_AUTHENTICATION_TOKEN);
@@ -80,7 +80,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	}
 
 	@Override
-	public String confirmUser(String code, String email) throws ApplicationException {
+	public User confirmUser(String code, String email) throws ApplicationException {
 		AuthenticationCode authenticationCode = authenticationCodeRepository.findByCode(code)
 				.orElseThrow(() -> new ApplicationException(AUTHENTICATION_CODE_NOT_FOUND));
 
@@ -114,14 +114,13 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 		return userRepository.save(user);
 	}
 
-	private String createAuthenticationToken(User user) {
+	private User createAuthenticationToken(User user) {
 		String authenticationToken = JwtTools.createJwt(jwtSecurityKey, String.valueOf(user.getId()), jwtIssuer,
 				user.getEmail(), jwtLifetime);
 
 		user.setAuthenticationToken(authenticationToken);
 		userRepository.save(user);
-
-		return authenticationToken;
+		return user;
 	}
 
 	private AuthenticationCode createNewAuthenticationCode(User user) {

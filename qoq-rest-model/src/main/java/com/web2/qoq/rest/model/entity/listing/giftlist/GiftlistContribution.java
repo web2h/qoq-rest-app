@@ -5,12 +5,10 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 import com.web2.qoq.rest.model.entity.listing.Contribution;
 
 @Entity
-@Table(name = "contributions")
 @DiscriminatorValue("GC")
 public class GiftlistContribution extends Contribution {
 

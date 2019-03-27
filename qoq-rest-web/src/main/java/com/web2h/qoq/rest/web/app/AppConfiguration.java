@@ -18,8 +18,8 @@ public class AppConfiguration implements WebMvcConfigurer {
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(authenticationTokenInterceptor)
-				.addPathPatterns("/pot/**/", "/giftlist/**/");
+		// registry.addInterceptor(authenticationTokenInterceptor)
+		// .addPathPatterns("/pot/**/", "/giftlist/**/");
 	}
 
 	@Bean(name = "jsonMapper")
