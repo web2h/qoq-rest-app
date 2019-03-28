@@ -1,4 +1,4 @@
-package com.web2.qoq.rest.messaging;
+package com.web2h.qoq.rest.messaging.error;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 

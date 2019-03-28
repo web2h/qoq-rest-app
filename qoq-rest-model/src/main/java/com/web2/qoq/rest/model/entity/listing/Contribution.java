@@ -31,7 +31,7 @@ import com.web2.qoq.rest.model.entity.user.User;
 public class Contribution extends VersionableEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
 
 	@ManyToOne

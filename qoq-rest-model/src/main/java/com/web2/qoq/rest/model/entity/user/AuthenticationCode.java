@@ -21,7 +21,7 @@ import com.web2.qoq.rest.model.entity.FieldLength;
 public class AuthenticationCode {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
 
 	@Column(name = "code", length = FieldLength.CODE_MAX, unique = true, nullable = false)
@@ -31,7 +31,7 @@ public class AuthenticationCode {
 	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
 
-	@Column(name = "expiration")
+	@Column(name = "expiration", nullable = false)
 	private Date expiration;
 
 	@Override

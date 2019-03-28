@@ -14,7 +14,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.web2.qoq.rest.model.entity.user.User;
 import com.web2h.qoq.rest.core.service.authentication.AuthenticationService;
-import com.web2h.qoq.rest.messaging.error.ApplicationException;
+import com.web2h.qoq.rest.service.error.ApplicationException;
 
 public class JwtTokenFilter extends OncePerRequestFilter {
 

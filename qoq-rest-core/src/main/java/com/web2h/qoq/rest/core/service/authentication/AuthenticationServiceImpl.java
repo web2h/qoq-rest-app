@@ -1,14 +1,14 @@
 package com.web2h.qoq.rest.core.service.authentication;
 
-import static com.web2h.qoq.rest.messaging.error.NotAuthorizedApplicationError.AUTHENTICATION_CODE_IS_EXPIRED;
-import static com.web2h.qoq.rest.messaging.error.NotAuthorizedApplicationError.DIFFERENT_USER_IN_AUTHENTICATION_TOKEN;
-import static com.web2h.qoq.rest.messaging.error.NotAuthorizedApplicationError.DIFFERENT_USER_LINKED_TO_CODE;
-import static com.web2h.qoq.rest.messaging.error.NotAuthorizedApplicationError.EXPIRED_AUTHENTICATION_TOKEN;
-import static com.web2h.qoq.rest.messaging.error.NotAuthorizedApplicationError.INVALID_AUTHENTICATION_TOKEN;
-import static com.web2h.qoq.rest.messaging.error.NotAuthorizedApplicationError.MISSING_AUTHENTICATION_TOKEN;
-import static com.web2h.qoq.rest.messaging.error.NotAuthorizedApplicationError.USER_NOT_FOUND_BY_AUTHENTICATION_TOKEN;
-import static com.web2h.qoq.rest.messaging.error.NotFoundApplicationError.AUTHENTICATION_CODE_NOT_FOUND;
-import static com.web2h.qoq.rest.messaging.error.NotFoundApplicationError.USER_NOT_FOUND_BY_EMAIL;
+import static com.web2h.qoq.rest.service.error.NotAuthorizedApplicationError.AUTHENTICATION_CODE_IS_EXPIRED;
+import static com.web2h.qoq.rest.service.error.NotAuthorizedApplicationError.DIFFERENT_USER_IN_AUTHENTICATION_TOKEN;
+import static com.web2h.qoq.rest.service.error.NotAuthorizedApplicationError.DIFFERENT_USER_LINKED_TO_CODE;
+import static com.web2h.qoq.rest.service.error.NotAuthorizedApplicationError.EXPIRED_AUTHENTICATION_TOKEN;
+import static com.web2h.qoq.rest.service.error.NotAuthorizedApplicationError.INVALID_AUTHENTICATION_TOKEN;
+import static com.web2h.qoq.rest.service.error.NotAuthorizedApplicationError.MISSING_AUTHENTICATION_TOKEN;
+import static com.web2h.qoq.rest.service.error.NotAuthorizedApplicationError.USER_NOT_FOUND_BY_AUTHENTICATION_TOKEN;
+import static com.web2h.qoq.rest.service.error.NotFoundApplicationError.AUTHENTICATION_CODE_NOT_FOUND;
+import static com.web2h.qoq.rest.service.error.NotFoundApplicationError.USER_NOT_FOUND_BY_EMAIL;
 
 import java.util.Date;
 
@@ -18,9 +18,9 @@ import org.springframework.stereotype.Service;
 
 import com.web2.qoq.rest.model.entity.user.AuthenticationCode;
 import com.web2.qoq.rest.model.entity.user.User;
-import com.web2h.qoq.rest.messaging.error.ApplicationException;
 import com.web2h.qoq.rest.persistence.repository.user.AuthenticationCodeRepository;
 import com.web2h.qoq.rest.persistence.repository.user.UserRepository;
+import com.web2h.qoq.rest.service.error.ApplicationException;
 import com.web2h.tools.authentication.CodeTools;
 import com.web2h.tools.authentication.JwtTools;
 import com.web2h.tools.date.DateTools;
@@ -100,13 +100,17 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	}
 
 	@Override
-	public void requestLoginCode(String email) throws ApplicationException {
+	public String requestLoginCode(String email) throws ApplicationException {
 
 		User user = userRepository.findByEmail(email).orElseGet(() -> createNewUser(email));
 
-		/* /AuthenticationCode authenticationCode = */createNewAuthenticationCode(user);
+		AuthenticationCode authenticationCode = createNewAuthenticationCode(user);
 
 		// TODO Send authentication code to user's email address
+
+		// TODO When code is sent to to user's email address, remove this and return
+		// void
+		return authenticationCode.getCode();
 	}
 
 	private User createNewUser(String email) {

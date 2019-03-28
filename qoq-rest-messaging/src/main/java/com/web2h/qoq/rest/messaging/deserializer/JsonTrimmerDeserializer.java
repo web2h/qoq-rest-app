@@ -1,4 +1,4 @@
-package com.web2.qoq.rest.messaging.deserializer;
+package com.web2h.qoq.rest.messaging.deserializer;
 
 import java.io.IOException;
 

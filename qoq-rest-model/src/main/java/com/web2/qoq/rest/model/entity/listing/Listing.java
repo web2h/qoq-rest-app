@@ -33,33 +33,33 @@ import com.web2.qoq.rest.model.entity.user.User;
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length = 1)
 @DiscriminatorValue(value = "L")
 public class Listing extends VersionableEntity {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
-	
+
 	@Column(name = "title", length = FieldLength.TITLE_MAX, nullable = false)
 	protected String title;
-	
-	@Column(name = "key_public", length = KEY_MAX, nullable = false, unique = true)	
+
+	@Column(name = "key_public", length = KEY_MAX, nullable = false, unique = true)
 	protected String publicKey;
 
-	@Column(name = "key_admin", length = KEY_MAX, nullable = false, unique = true)	
+	@Column(name = "key_admin", length = KEY_MAX, nullable = false, unique = true)
 	protected String adminKey;
-	
+
 	@Column(name = "deadline", nullable = false)
 	protected Date deadline;
 
 	@Column(name = "precision", length = PRECISION_MAX)
 	protected String precision;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "user_id", nullable = false)
 	protected User administrator;
-	
+
 	@OneToMany(mappedBy = "listing", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<Guest> guests = new HashSet<>();
-	
+
 	public void addGuest(Guest guest) {
 		guests.add(guest);
 	}

@@ -18,9 +18,9 @@
 		<module>qoq-rest-model</module>
 		<module>qoq-rest-persistence</module>
 		<module>qoq-rest-core</module>
-		<module>qoq-rest-flyway</module>
-		<module>qoq-rest-web</module>
 		<module>qoq-rest-messaging</module>
+		<module>qoq-rest-flyway</module>
+		<module>qoq-rest-web</module>		
 	</modules>
 
 	<properties>

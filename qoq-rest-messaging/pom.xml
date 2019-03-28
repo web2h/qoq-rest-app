@@ -13,6 +13,18 @@
 	
 	<dependencies>
 		<dependency>
+			<groupId>com.web2h.qoq</groupId>
+			<artifactId>qoq-rest-model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.web2h.qoq</groupId>
+			<artifactId>qoq-rest-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 		</dependency>		
@@ -20,6 +32,11 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.web2h</groupId>
+			<artifactId>tools</artifactId>
 		</dependency>
 	</dependencies>
 </project>

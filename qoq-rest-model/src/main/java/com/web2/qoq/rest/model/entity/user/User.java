@@ -23,7 +23,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
 
 	@Column(name = "email", length = EMAIL_MAX, unique = true)
@@ -35,12 +35,16 @@ public class User {
 	@Column(name = "authentication_token", length = TOKEN_MAX, unique = true)
 	private String authenticationToken;
 
-	@Column(name = "alias", length = ALIAS_MAX, nullable = false)
+	@Column(name = "alias", length = ALIAS_MAX)
 	private String alias;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "preferred_language", length = LANGUAGE_MAX, nullable = false)
 	private Language preferredLanguage;
+
+	public User() {
+
+	}
 
 	public User(String email) {
 		this.email = email;

@@ -27,7 +27,7 @@ import com.web2.qoq.rest.model.entity.listing.Listing;
 public class Gift extends VersionableEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(name = "title", length = TITLE_MAX, nullable = false)

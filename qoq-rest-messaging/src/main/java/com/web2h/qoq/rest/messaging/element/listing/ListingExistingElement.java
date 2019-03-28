@@ -1,4 +1,4 @@
-package com.web2.qoq.rest.messaging.element.listing;
+package com.web2h.qoq.rest.messaging.element.listing;
 
 public class ListingExistingElement extends ListingInfoElement {
 

@@ -1,4 +1,4 @@
-package com.web2.qoq.rest.messaging;
+package com.web2h.qoq.rest.messaging;
 
 import javax.validation.constraints.NotNull;
 

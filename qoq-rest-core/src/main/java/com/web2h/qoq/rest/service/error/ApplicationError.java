@@ -1,4 +1,4 @@
-package com.web2h.qoq.rest.messaging.error;
+package com.web2h.qoq.rest.service.error;
 
 import org.springframework.http.HttpStatus;
 

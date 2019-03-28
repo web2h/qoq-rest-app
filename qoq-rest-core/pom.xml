@@ -23,13 +23,7 @@
 			<artifactId>qoq-rest-persistence</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
-		<dependency>
-			<groupId>com.web2h.qoq</groupId>
-			<artifactId>qoq-rest-messaging</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		
+				
 		<dependency>
 			<groupId>com.web2h</groupId>
 			<artifactId>tools</artifactId>
