@@ -1,12 +1,12 @@
-package com.web2h.qoq.rest.messaging.listing.pot.creation;
+package com.web2h.qoq.rest.messaging.listing.pot;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import com.web2h.qoq.rest.messaging.AuthenticatedRequest;
+import com.web2h.qoq.rest.messaging.QoqRequest;
 import com.web2h.qoq.rest.messaging.element.listing.ListingInfoElement;
 
-public class PotCreationRequest extends AuthenticatedRequest {
+public class PotCreationRequest extends QoqRequest {
 
 	@NotNull
 	@Valid
